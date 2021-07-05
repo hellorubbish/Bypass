@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("簞純")]
-[assembly: AssemblyDescription("DcRat")]
+[assembly: AssemblyTitle("Program")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("qwqdanchun")]
-[assembly: AssemblyProduct("簞純")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -1,5 +1,5 @@
 ﻿
-namespace qwqdanchun
+namespace Program
 {
     partial class Form1
     {
@@ -30,57 +30,74 @@ namespace qwqdanchun
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(505, 209);
+            this.button1.Location = new System.Drawing.Point(288, 111);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(110, 188);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(78, 16);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(203, 228);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(482, 261);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 97);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(137, 120);
+            this.monthCalendar1.Location = new System.Drawing.Point(686, -22);
             this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 1;
+            this.monthCalendar1.TabIndex = 4;
             // 
-            // label1
+            // progressBar1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(404, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(520, 256);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(204, 165);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.progressBar1.Location = new System.Drawing.Point(153, 334);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Test";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "123";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +106,11 @@ namespace qwqdanchun
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

